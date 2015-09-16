@@ -16,5 +16,7 @@ namespace CoffeDate.Model.Models
         [Display(Name = "E-Mail")]
         [DataType(DataType.EmailAddress)]
         public virtual string EmailAddress { get; set; }
+        [Display(Name="Val")]
+        public virtual int Val { get; set;}
     }
 }

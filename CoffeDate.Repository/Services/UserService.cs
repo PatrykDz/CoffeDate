@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using CoffeDate.Model.Models;
 using NHibernate;
+using NHibernate.Criterion;
 
-namespace CoffeDate.Model.Services
+namespace CoffeDate.Repository.Services
 {
     public class UserService : IUserService
     {
@@ -33,17 +34,20 @@ namespace CoffeDate.Model.Services
 
         public User GetByID(Guid key)
         {
-            throw new NotImplementedException();
+            return Session.Get<User>(key);
         }
 
         public void Save(User entity)
         {
-            throw new NotImplementedException();
+            Session.Save(entity);
+            Session.Flush();
         }
 
         public void Delete(User entity)
         {
-            throw new NotImplementedException();
+            Session.Delete(entity);
+            Session.Flush();
         }
+
     }
 }

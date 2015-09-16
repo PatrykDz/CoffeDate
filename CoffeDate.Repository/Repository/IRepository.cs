@@ -5,7 +5,7 @@ using NHibernate.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeDate.Model
+namespace CoffeDate.Repository
 {
     public interface IRepository<T>
     {

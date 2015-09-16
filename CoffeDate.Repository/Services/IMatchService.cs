@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace CoffeDate.Repository.Services
 {
-    public interface IUserService
+    public interface IMatchService
     {
-        IEnumerable<User> GetAll();
-        User GetByID(int id);
-        User GetByID(Guid key);
-        void Save(User entity);
-        void Delete(User entity);
-
+        IEnumerable<User> GetCandidates(int? id);
     }
 }

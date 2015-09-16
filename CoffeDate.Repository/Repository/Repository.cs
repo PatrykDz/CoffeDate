@@ -5,7 +5,7 @@ using System.Linq;
 using NHibernate.Linq;
 using System.Web;
 
-namespace CoffeDate.Model
+namespace CoffeDate.Repository
 {
     public class Repository<T> : IRepository<T>
     {

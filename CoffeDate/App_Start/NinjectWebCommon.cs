@@ -11,9 +11,10 @@ namespace CoffeDate.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Model;
-    using CoffeDate.Model.Services;
+    using CoffeDate.Repository.Services;
     using NHibernate;
     using CoffeDate.Model.NHibernateHelpers;
+    using CoffeDate.Repository;
 
     public static class NinjectWebCommon 
     {
@@ -68,6 +69,7 @@ namespace CoffeDate.App_Start
             //kernel.Bind(typeof(IRepository<>)).To(typeof(Repository<>));
             kernel.Bind(typeof(IRepository<>)).To(typeof(Repository<>)).InRequestScope();
             kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IMatchService>().To<MatchService>();
             //kernel.Bind<ISessionFactory>().ToProvider<NHibernateHelper>().InSingletonScope();
             kernel.Bind<ISession>().ToMethod(context => NHibernateHelper.OpenSession()).InRequestScope();
         }        

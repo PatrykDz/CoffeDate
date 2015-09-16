@@ -12,6 +12,7 @@ namespace CoffeDate.Model.Models
         string FirstName { get; set; }
         string LastName { get; set; }
         string EmailAddress { get; set; }
+        int Val { get; set;}
         
 
     }

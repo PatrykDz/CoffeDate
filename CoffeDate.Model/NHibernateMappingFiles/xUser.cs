@@ -6,7 +6,7 @@ using NHibernate.Mapping;
 using Iesi.Collections;
 namespace CoffeDate.Model.NHibernateMappingFiles
 {
-    public abstract partial class User
+    public abstract partial class xUser
     {
      /*   public virtual int UserId { get; set; }
         
@@ -16,10 +16,5 @@ namespace CoffeDate.Model.NHibernateMappingFiles
 
         public virtual string EmailAddress { get; set; }
       */
-    }
-
-    public partial class UserImpl : User
-    {
-
     }
 }

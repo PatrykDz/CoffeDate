@@ -14,5 +14,8 @@
     <property name="EmailAddress" type="String">
       <column name="EmailAddress" />
     </property>
+    <property name="Val" type="Int32">
+      <column name="Val" sql-type="int"/>
+    </property>
   </class>
 </hibernate-mapping>

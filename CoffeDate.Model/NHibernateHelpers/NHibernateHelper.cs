@@ -1,4 +1,5 @@
-﻿using CoffeDate.Model.NHibernateMappingFiles;
+﻿using CoffeDate.Model.Models;
+using CoffeDate.Model.NHibernateMappingFiles;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Mapping.Attributes;
