@@ -49,5 +49,21 @@ namespace CoffeDate.Repository.Services
             Session.Flush();
         }
 
+
+        public User GetByEmailPassword(string email, string password)
+        {
+
+            User user = Session.CreateCriteria(typeof(User))
+             .Add(Expression.Eq("EmailAddress", email))
+             .Add(Expression.Eq("Password", password))
+             .UniqueResult<User>();
+
+
+            return user;
+
+        }
+
+
+
     }
 }

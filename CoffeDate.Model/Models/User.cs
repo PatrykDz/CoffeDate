@@ -41,8 +41,11 @@ namespace CoffeDate.Model.Models
 
         [Display(Name = "Dodatki")]
         public virtual int Additive { get; set;}
-        
 
+
+        public virtual string CoffeTypeStr { get; set; }
+        public virtual string AdditiveStr { get; set; }
+        public virtual bool LoggedIn { get; set;}
 
     }
 }

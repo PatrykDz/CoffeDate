@@ -1,0 +1,27 @@
+﻿@model CoffeDate.Model.Models.User
+
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "loginForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    @Html.LabelFor(model => model.EmailAddress, new { @class = "control-label col-lg-6" })
+    @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @type = "email" })
+    @Html.LabelFor(model => model.Password, new { @class = "control-label" })
+    @Html.PasswordFor(model => model.Password, new { @class = "form-control"})
+    <button type="submit" id="btnLogin" class="form-control btn pull-right btn-success col-lg-12">Login</button>
+
+}
+
+<style>
+    #btnLogin {
+        margin-top: 5px;
+    }
+
+    #loginForm {
+        display: inline-block;
+        width: 200px;
+    }
+</style>

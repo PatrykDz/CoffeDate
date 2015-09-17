@@ -59,18 +59,39 @@ namespace CoffeDate.Controllers
 //            if (ModelState.IsValid)
   //          {
             
-              //  User x = new User() {FirstName="Jan", LastName="Kowalski", EmailAddress="j.kowalski@gmail.com", Additive=1, Sugar=1,CoffeType=1, Password="pass"};
-              //  User x = new User() { FirstName = "", LastName = "Kowalski", EmailAddress = "j.kowalski@gmail.com", Additive = 1, Sugar = 1, CoffeType = 1, Password = "pass" };
-
                 userService.Save(u);
-
                 ViewBag.Message = "Zarejestrowano";
-
     //        }
             return View(Views.Index, u);
         }
 
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string EmailAddress, string Password)
+        {
+            User u = userService.GetByEmailPassword(EmailAddress, Password);
+
+            if (u != null) { 
+            Session["LoggedUserId"] = u.UserId.ToString();
+            Session["LoggedUserFirstName"] = u.FirstName.ToString();
+            return RedirectToAction("Match", "Match", new { Match = "" });
+            }
+            else
+            {
+                return View(Views.Index);
+            }
+            
+        }
+
+        public ActionResult Logout()
+        {
+            Session["LoggedUserId"] = null;
+            Session["LoggedUserFirstName"] = null;
+
+            return RedirectToAction("Index", "Home", new { Message = "Błędny login lub hasło" });
+            }
 
     }
 }

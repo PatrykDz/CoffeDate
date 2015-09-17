@@ -15,6 +15,9 @@ namespace CoffeDate.Repository.Services
         private IRepository<User> userRepository;
 
 
+        private Dictionary<int, string> CoffeTypeDictionary;
+        private Dictionary<int, string> AdditiveDictionary; 
+
         public MatchService(ISession session, IRepository<User> repository)
         {
             this.Session = session;
@@ -24,20 +27,17 @@ namespace CoffeDate.Repository.Services
 
 
 
-            Dictionary<int, string> CoffeTypeDictionary = new Dictionary<int, string>();
+            CoffeTypeDictionary = new Dictionary<int, string>();
             CoffeTypeDictionary.Add(1, "Sypana");
             CoffeTypeDictionary.Add(2, "Rozpuszczalna");
             CoffeTypeDictionary.Add(3, "Z ekspresu");
             CoffeTypeDictionary.Add(4, "Cappucino");
             CoffeTypeDictionary.Add(5, "Latte");
 
-
-
-
-
-
-
-
+            AdditiveDictionary = new Dictionary<int, string>();
+            AdditiveDictionary.Add(1, "Czarna");
+            AdditiveDictionary.Add(2, "Śmietanka");
+            AdditiveDictionary.Add(3, "Mleko");
 
 
         }
@@ -52,6 +52,16 @@ namespace CoffeDate.Repository.Services
 
 
 
+            foreach (User u in result)
+            {
+                u.CoffeTypeStr = CoffeTypeDictionary[u.CoffeType];
+                u.AdditiveStr = AdditiveDictionary[u.Additive];
+                //if (u.UserId == Session["LoggedUserId"]) u.LoggedIn = true;
+            }
+
+
+
+
 
 
             return result;
@@ -63,6 +73,8 @@ namespace CoffeDate.Repository.Services
 
         public override string ToString()
         {
+
+            
             return base.ToString();
         }
 

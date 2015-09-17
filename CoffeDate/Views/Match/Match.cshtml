@@ -29,8 +29,9 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+    @foreach (var item in Model)
+{
+    <tr class="@(item.UserId == int.Parse((string)Session["LoggedUserId"]) ? "success" : "")">
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
@@ -41,15 +42,16 @@
             @Html.DisplayFor(modelItem => item.EmailAddress)
         </td>
         <th>
-            @Html.DisplayFor(model => item.CoffeType)
+            @Html.DisplayFor(model => item.CoffeTypeStr)
         </th>
         <th>
             @Html.DisplayFor(model => item.Sugar)
         </th>
         <th>
-            @Html.DisplayFor(model => item.Additive)
+            @Html.DisplayFor(model => item.AdditiveStr)
         </th>
     </tr>
 }
+
 
 </table>

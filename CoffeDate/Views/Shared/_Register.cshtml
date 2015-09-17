@@ -90,7 +90,7 @@
             @Html.LabelFor(model => model.Sugar, new { @class = "control-label" })
         </div>
         <div class="editor-field col-lg-12">
-            <input id="sugar" type="text" name="sugar" data-slider-ticks="[0, 1, 2, 3, 4, 5]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["0", "1", "2", "3", "4", "Więcej"]' />
+            <input id="sugar" type="text" name="sugar" data-slider-ticks="[0, 1, 2, 3, 4, 5]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["0", "1", "2", "3", "4", "Więcej"]' data-slider-value="2" />
         </div>
 
         <div class="editor-label">
@@ -120,9 +120,9 @@
         <p></p>
         <p>
             <div class="editor-field">
-                <input type="checkbox" name="termsofuse" id="termsofuse" value="1" />
+                <input type="checkbox" name="termsofuse" id="termsofuse" value="1" checked="checked" />
                 <label for="termsofuse">Akceptuję regulamin</label>
-                <input type="submit" class="btn btn-success pull-right" value="Zarejestruj" />
+                <input type="submit" class="btn btn-success pull-right col-lg-6 col-md-6 col-sm-6 col-xs-6"  value="Zarejestruj" />
             </div>
             
 

@@ -14,6 +14,7 @@ namespace CoffeDate.Repository.Services
         User GetByID(Guid key);
         void Save(User entity);
         void Delete(User entity);
+        User GetByEmailPassword(string email, string password);
 
     }
 }
