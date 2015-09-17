@@ -1,0 +1,144 @@
+﻿@model CoffeDate.Model.Models.User
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="~/Scripts/bootstrap-slider.min.js"></script>
+
+<link href="~/css/bootstrap-slider.min.css" rel="stylesheet" />
+
+
+
+
+@using (Html.BeginForm("Register", "Home"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form-horizontal">
+        <h2>Rejestracja</h2>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
+                </div>
+                <div class="editor-label">
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+            </div>
+
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress, new { @class = "control-label" })
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @type = "email" })
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password, new { @class = "control-label" })
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+
+
+
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CoffeType, new { @class = "control-label" })
+        </div>
+        <div class="editor-field">
+            <fieldset data-role="controlgroup" data-type="horizontal" id="CoffeType" name="CoffeType">
+                <input type="radio" name="CoffeType" id="coffe-type-1" value="1" checked="checked" />
+                <label for="coffe-type-1">Sypana</label>
+                <input type="radio" name="CoffeType" id="coffe-type-2" value="2" />
+                <label for="coffe-type-2">Rozpuszczalna</label>
+                <input type="radio" name="CoffeType" id="coffe-type-3" value="3" />
+                <label for="coffe-type-3">Z ekspresu</label>
+                <input type="radio" name="CoffeType" id="coffe-type-4" value="4" />
+                <label for="coffe-type-4">Cappucino</label>
+                <input type="radio" name="CoffeType" id="coffe-type-5" value="5" />
+                <label for="coffe-type-5">Latte</label>
+                <!--
+                                @Html.RadioButton("CoffeType", "1", new { id = "yourId" })
+                                @Html.LabelFor(model => model.CoffeType, new { @class = "control-label" })
+                -->
+            </fieldset>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sugar, new { @class = "control-label" })
+        </div>
+        <div class="editor-field col-lg-12">
+            <input id="sugar" type="text" name="sugar" data-slider-ticks="[0, 1, 2, 3, 4, 5]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["0", "1", "2", "3", "4", "Więcej"]' />
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Additive, new { @class = "control-label" })
+        </div>
+        <div class="editor-field">
+            <fieldset data-role="controlgroup" data-type="horizontal" id="CoffeType" name="CoffeType">
+                <input type="radio" name="Additive" id="additive-1" value="1" checked="checked" />
+                <label for="additive-1">Czarna</label>
+                <input type="radio" name="Additive" id="additive-2" value="2" />
+                <label for="additive-2">Śmietanka</label>
+                <input type="radio" name="Additive" id="additive-3" value="3" />
+                <label for="additive-3">Mleko</label>
+
+                <!--
+                                @Html.RadioButton("CoffeType", "1", new { id = "yourId" })
+                                @Html.LabelFor(model => model.CoffeType, new { @class = "control-label" })
+                -->
+            </fieldset>
+        </div>
+
+
+
+
+
+
+        <p></p>
+        <p>
+            <div class="editor-field">
+                <input type="checkbox" name="termsofuse" id="termsofuse" value="1" />
+                <label for="termsofuse">Akceptuję regulamin</label>
+                <input type="submit" class="btn btn-success pull-right" value="Zarejestruj" />
+            </div>
+            
+
+        </p>
+    </div>
+
+
+
+    <script>
+        $("#sugar").slider({
+            tooltip: 'hide',
+            ticks: [0, 1, 2, 3, 4, 5],
+            ticks_labels: ['0', '1', '2', '3', '4', 'Więcej'],
+            ticks_snap_bounds: 30
+        });
+    </script>
+
+
+}

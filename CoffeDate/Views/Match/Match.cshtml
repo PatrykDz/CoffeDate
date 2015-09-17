@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<CoffeDate.Model.Models.User>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Match";
 }
 
-<h2>Index</h2>
+<h2>Match</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -21,7 +18,13 @@
             @Html.DisplayNameFor(model => model.EmailAddress)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Val)
+            @Html.DisplayNameFor(model => model.CoffeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sugar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Additive)
         </th>
         <th></th>
     </tr>
@@ -37,14 +40,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.EmailAddress)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Val)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
-        </td>
+        <th>
+            @Html.DisplayFor(model => item.CoffeType)
+        </th>
+        <th>
+            @Html.DisplayFor(model => item.Sugar)
+        </th>
+        <th>
+            @Html.DisplayFor(model => item.Additive)
+        </th>
     </tr>
 }
 

@@ -13,7 +13,7 @@ using CoffeDate.Repository.Services;
 
 namespace CoffeDate.Controllers
 {
-    public class TestController : Controller
+    public partial class MatchController : Controller
     {
         //
         // GET: /Test/
@@ -22,19 +22,19 @@ namespace CoffeDate.Controllers
         private IMatchService matchService;
 
         [Inject]
-        public TestController(IUserService userService, IMatchService matchService)
+        public MatchController(IUserService userService, IMatchService matchService)
         {
             this.userService = userService;
             this.matchService = matchService;
         }
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             IEnumerable<User> users = userService.GetAll();
             return View(users);
         }
 
-        public ActionResult Edit(int? id)
+        public virtual ActionResult Edit(int? id)
         {
             User userEntity = new User();
             if(id.HasValue && id != 0)
@@ -45,7 +45,7 @@ namespace CoffeDate.Controllers
         }
 
 
-        public ActionResult Match(int? id)
+        public virtual ActionResult Match(int? id)
         {
             IEnumerable<User> matches = matchService.GetCandidates(1);
 

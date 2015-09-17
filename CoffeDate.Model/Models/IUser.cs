@@ -12,8 +12,9 @@ namespace CoffeDate.Model.Models
         string FirstName { get; set; }
         string LastName { get; set; }
         string EmailAddress { get; set; }
-        int Val { get; set;}
-        
-
+        string Password { get; set; }
+        int CoffeType { get; set; }
+        int Sugar { get; set; }
+        int Additive { get; set; }
     }
 }
