@@ -31,20 +31,6 @@ namespace CoffeDate.Controllers
             return View();
         }
 
-        public virtual ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public virtual ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         public virtual ActionResult Register()
         {
             return View();
@@ -56,12 +42,17 @@ namespace CoffeDate.Controllers
         public ActionResult Register(User u)
         {
 
-//            if (ModelState.IsValid)
-  //          {
-            
-                userService.Save(u);
-                ViewBag.Message = "Zarejestrowano";
-    //        }
+            //            if (ModelState.IsValid)
+            //          {
+
+            userService.Save(u);
+            ViewBag.Message = "Zarejestrowano";
+
+            Session["LoggedUserId"] = u.UserId.ToString();
+            Session["LoggedUserFirstName"] = u.FirstName.ToString();
+            return RedirectToAction("Match", "Match", new { Match = "" });
+
+            //        }
             return View(Views.Index, u);
         }
 
@@ -73,16 +64,18 @@ namespace CoffeDate.Controllers
         {
             User u = userService.GetByEmailPassword(EmailAddress, Password);
 
-            if (u != null) { 
-            Session["LoggedUserId"] = u.UserId.ToString();
-            Session["LoggedUserFirstName"] = u.FirstName.ToString();
-            return RedirectToAction("Match", "Match", new { Match = "" });
+            if (u != null)
+            {
+                Session["LoggedUserId"] = u.UserId.ToString();
+                Session["LoggedUserFirstName"] = u.FirstName.ToString();
+                return RedirectToAction("Match", "Match", new { Match = "" });
             }
             else
             {
                 return View(Views.Index);
+
             }
-            
+
         }
 
         public ActionResult Logout()
@@ -91,7 +84,19 @@ namespace CoffeDate.Controllers
             Session["LoggedUserFirstName"] = null;
 
             return RedirectToAction("Index", "Home", new { Message = "Błędny login lub hasło" });
-            }
+        }
+
+
+        public ActionResult TermsOfUse()
+        {
+            return View();
+        }
+
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
 
     }
 }

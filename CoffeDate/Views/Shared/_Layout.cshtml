@@ -46,6 +46,9 @@
                             {
                                 @Html.MenuLink("Znajdź", "Match", "Match");
                             }
+                            @Html.MenuLink("Regulamin", "TermsOfUse", "Home")
+                            @Html.MenuLink("Kontakt", "Contact", "Home")
+   
                         </ul>
 
 
@@ -73,7 +76,7 @@
                         else
                         {
                             <ul class="nav navbar-nav navbar-right">
-                                @Html.MenuLink("Wyloguj", "Logout", "Home")
+                                @Html.MenuLink("Wyloguj " + Session["LoggedUserFirstName"], "Logout", "Home")
                             </ul>
                         }
 

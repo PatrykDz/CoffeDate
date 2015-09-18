@@ -1,0 +1,15 @@
+﻿#btnLogin {
+    margin-top: 5px;
+}
+
+#loginForm {
+    display: inline-block;
+    width: 200px;
+}
+
+
+@media all and (max-width: 767px){
+    #loginForm {
+        width: 100%;
+    }
+}

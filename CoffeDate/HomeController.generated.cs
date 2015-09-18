@@ -128,24 +128,10 @@ namespace CoffeDate.Controllers
         [NonAction]
         partial void AboutOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
-        [NonAction]
-        public override System.Web.Mvc.ActionResult About()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.About);
-            AboutOverride(callInfo);
-            return callInfo;
-        }
 
         [NonAction]
         partial void ContactOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
-        [NonAction]
-        public override System.Web.Mvc.ActionResult Contact()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Contact);
-            ContactOverride(callInfo);
-            return callInfo;
-        }
 
     }
 }
